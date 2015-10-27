@@ -11,7 +11,7 @@
 
 
     <!-- Add a GoodThing-->
-    <string name="add_good_thing_helper">Type Your GoodThing Here!</string>
+    <string name="add_good_thing_helper">What made you smile recently?!</string>
     <string name="submit_button">Submit!</string>
 
 
