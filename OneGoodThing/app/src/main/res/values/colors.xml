@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#ffffff</color>
+    <color name="feed_bg">#e7e7e9</color>
+    <color name="main_blue">#005f6d</color>
+    <color name="main_blue_transparent">#65005f6d</color>
+    <color name="secondary_blue">#32b9be</color>
+    <color name="main_yellow">#fff4ac</color>
+
+
+    <color name="main_grey">#999999</color>
+
+</resources>

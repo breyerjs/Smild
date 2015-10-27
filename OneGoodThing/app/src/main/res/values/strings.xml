@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Smil\'d</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <!-- MAIN -->
+    <string name="about_button">About</string>
+    <string name="random_button">Remember When</string>
+    <string name="plus">+</string>
+
+
+    <!-- Add a GoodThing-->
+    <string name="add_good_thing_helper">Type Your GoodThing Here!</string>
+    <string name="submit_button">Submit!</string>
+
+
+    <!-- Remember When -->
+    <string name="remember_when_label">Remember When...</string>
+    <string name="remember_when_header"> Remember When...</string>
+    <string name="another_memory_button_text">Another GoodThing!</string>
+
+
+    <!-- About -->
+    <string name="about_text">A GoodThing is something positive from your life.
+    That can be a personal victory, a humorous incident, or even something you
+    observed that made you happy. Use this app to record these GoodThings and
+    review them later!</string>
+
+</resources>

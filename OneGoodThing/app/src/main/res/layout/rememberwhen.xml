@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/remember_when_header"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/remember_when_header"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/display_goodthing"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/remember_when_header"/>
+
+    <LinearLayout
+        android:id="@+id/exp_rem_text"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/remember_when_header"
+        android:layout_above="@+id/another_goodthing_button"/>
+
+    <Button
+        android:id="@+id/another_goodthing_button"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/another_memory_button_text"
+        android:clickable="true"
+        android:onClick="tapToGetRandom"
+        android:background="@color/secondary_blue"
+        android:layout_marginLeft="@dimen/bar_margin"
+        android:layout_marginRight="@dimen/bar_margin"
+        android:layout_marginTop="@dimen/bar_margin"
+        android:layout_marginBottom="@dimen/bar_margin"/>
+
+</RelativeLayout>

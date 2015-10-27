@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/OneGoodThing/app/build/intermediates/pre-dexed/debug/classes-15268386370d173ca57d99327df049691e8cc2d2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OneGoodThing/app/build/intermediates/pre-dexed/debug/classes-c3872552a1504878e124777dc6441e82d76cb499.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OneGoodThing/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-f698c6bd37db7868435ed1856b6c9b760a07fc94.jar!/" />
+      <root url="jar://$PROJECT_DIR$/OneGoodThing/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-a9bdaa5d31c3d0fc9d30217206762dc245502414.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

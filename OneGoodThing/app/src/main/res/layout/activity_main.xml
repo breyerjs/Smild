@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/secondary_blue"
+        android:orientation="horizontal"
+        >
+
+
+        <ImageButton
+            android:id="@+id/random_button"
+            android:layout_width="0dp"
+            android:layout_weight=".485"
+            android:layout_height="match_parent"
+            android:src="@drawable/shuffle"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:contentDescription="@string/remember_when_header"
+            android:clickable="true"
+            android:onClick="startRememberWhen"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <View android:layout_height="fill_parent"
+            android:layout_weight="0.01"
+            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/white"/>
+
+        <ImageButton
+            android:id="@+id/about_button"
+            android:layout_width="0dp"
+            android:layout_weight=".485"
+            android:layout_height="match_parent"
+            android:src="@drawable/about"
+            android:contentDescription="@string/about_button"
+            android:scaleType="fitCenter"
+            android:padding="10dp"
+            android:clickable="true"
+            android:onClick="startAbout"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/the_feed"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/add_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:background="@color/feed_bg">
+
+    </ListView>
+
+
+    <ImageButton
+        android:id="@+id/add_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:src="@drawable/add"
+        android:contentDescription="@string/plus"
+        android:scaleType="fitCenter"
+        android:padding="10dp"
+        android:clickable="true"
+        android:onClick="addGoodThing"
+        android:background="@color/secondary_blue"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/bar_margin"
+        android:layout_marginRight="@dimen/bar_margin"
+        android:layout_marginBottom="@dimen/bar_margin"/>
+
+</RelativeLayout>
