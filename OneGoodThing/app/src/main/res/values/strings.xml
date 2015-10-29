@@ -27,4 +27,11 @@
     observed that made you happy. Use this app to record these GoodThings and
     review them later!</string>
 
+    <!-- Intro Tour -->
+    <string name="intro_text">Hi There! Welcome to Smil\'d, where you can
+    record and review all the happy moments in in your life. It\'s much easier to focus
+    on the positive aspects of life if you keep a list like this!</string>
+    <string name="add_first_goodthing">Add Your first GoodThing!</string>
+
+
 </resources>
