@@ -17,8 +17,8 @@ public class IntroTour extends AppCompatActivity {
     }
 
     //update this to open the 'add first goodthing" activity
-    public void addFirstGoodThing(View view){
-        Intent start = new Intent(IntroTour.this, AddGoodThing.class);
+    public void launchAddFirstGoodThing(View view){
+        Intent start = new Intent(IntroTour.this, AddFirstGoodThing.class);
         IntroTour.this.startActivity(start);
     }
 
