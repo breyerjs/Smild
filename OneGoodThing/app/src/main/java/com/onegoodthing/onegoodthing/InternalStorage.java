@@ -1,6 +1,7 @@
 package com.onegoodthing.onegoodthing;
 import android.app.LauncherActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -39,6 +40,10 @@ public final class InternalStorage extends AppCompatActivity{
                 Toast.makeText(context, "There's been an error (IO)", Toast.LENGTH_LONG).show();
             }
         }
+        else{
+            //launch the intro tour here!!
+            //intent is kinda tricky from a static class--figure it out.
+        }
     }
 
     public static void writeObject(Context context, String key, Object object) throws IOException {
@@ -54,11 +59,8 @@ public final class InternalStorage extends AppCompatActivity{
         Object output = new Object();
 
         FileInputStream fis = context.openFileInput(key);
-        Log.d("TAG", "FIS DONE");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        Log.d("TAG", "OIS CREATED");
         output = ois.readObject();
-        Log.d("TAG", "LIST READ DONE");
         return output;
     }
 

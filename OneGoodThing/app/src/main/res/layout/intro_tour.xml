@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/intro_text"
-        style="@style/feed_item_style"/>
-
-    <Button
-        android:id="@+id/intro_tour_add_goodthing"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:text="@string/add_first_goodthing"
-        android:clickable="true"
-        android:onClick="launchAddFirstGoodThing"
-        android:background="@color/secondary_blue"
-        android:layout_marginLeft="@dimen/bar_margin"
-        android:layout_marginRight="@dimen/bar_margin"
-        android:layout_marginTop="@dimen/bar_margin"
-        android:layout_marginBottom="@dimen/bar_margin"/>
-    
-</RelativeLayout>
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- This text view will be replaced by a series of images
+                showing the intro tour stuff-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/intro_text"
+                style="@style/feed_item_style"/>
+
+        <Button
+            android:id="@+id/intro_tour_add_goodthing"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:text="@string/add_first_goodthing"
+            android:clickable="true"
+            android:onClick="launchAddFirstGoodThing"
+            android:background="@color/secondary_blue"
+            android:layout_marginLeft="@dimen/bar_margin"
+            android:layout_marginRight="@dimen/bar_margin"
+            android:layout_marginTop="@dimen/bar_margin"
+            android:layout_marginBottom="@dimen/bar_margin"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
