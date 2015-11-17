@@ -32,8 +32,8 @@ public final class InternalStorage extends AppCompatActivity{
         //To be called when app is started or when new items are added to the feed
         if (Arrays.asList(context.fileList()).contains("allGoodThings")) {
             try {
-                ArrayList<GoodThing> inStorage = (ArrayList<GoodThing>) InternalStorage.readObjectList(context, "allGoodThings");
-                theFeed = InternalStorage.convertGtToFeedItems(inStorage);
+                theFeed = (ArrayList<FeedItem>) InternalStorage.readObjectList(context, "allGoodThings");
+//                theFeed = InternalStorage.convertGtToFeedItems(inStorage);
             } catch (ClassNotFoundException e) {
                 Toast.makeText(context, "There's been an error (class)", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
@@ -41,6 +41,7 @@ public final class InternalStorage extends AppCompatActivity{
             }
         }
         else{
+            theFeed = new ArrayList<FeedItem>();
             //launch the intro tour here!!
             //intent is kinda tricky from a static class--figure it out.
         }
@@ -68,14 +69,4 @@ public final class InternalStorage extends AppCompatActivity{
         return (Arrays.asList(fileList()).contains(filename));
     }
 
-    public static ArrayList<FeedItem> convertGtToFeedItems(ArrayList<GoodThing> input){
-        ArrayList<FeedItem> currentFeed = new ArrayList<FeedItem>();
-        //create list of ListItems BY REVERSING ORDER OF GOODTHINGS
-        // need to reverse so newest are first.
-        for (int i = input.size()-1; i>=0; i--) {
-            GoodThing gt = input.get(i);
-            currentFeed.add(gt.convertToFeedItem());
-        }
-        return currentFeed;
-    }
 }

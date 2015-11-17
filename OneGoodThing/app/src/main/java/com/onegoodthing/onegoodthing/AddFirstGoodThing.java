@@ -53,13 +53,13 @@ public class AddFirstGoodThing extends AppCompatActivity {
         if (Arrays.asList(fileList()).contains("allGoodThings")) {
             try {
                 //get the list from memory
-                ArrayList<GoodThing> currentList = (ArrayList<GoodThing>) InternalStorage.readObjectList(this, "allGoodThings");
+                ArrayList<FeedItem> currentList = (ArrayList<FeedItem>) InternalStorage.readObjectList(this, "allGoodThings");
 
                 //get current max id
                 int currentMaxId = Collections.max(currentList).gtid;
 
                 //add it and write it back to memory
-                currentList.add(new GoodThing(currentMaxId+1, text));
+                currentList.add(new FeedItem(currentMaxId+1, text));
                 InternalStorage.writeObject(this, "allGoodThings", currentList);
 
             } catch (IOException e) {
@@ -72,8 +72,8 @@ public class AddFirstGoodThing extends AppCompatActivity {
         //If it's the first post
         else{
             //make the directory and add it as the first item
-            ArrayList<GoodThing> currentList = new ArrayList<GoodThing>();
-            currentList.add(new GoodThing(1, text));
+            ArrayList<FeedItem> currentList = new ArrayList<FeedItem>();
+            currentList.add(new FeedItem(1, text));
             try {
                 InternalStorage.writeObject(this, "allGoodThings", currentList);
             } catch (IOException e) {

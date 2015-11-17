@@ -21,6 +21,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
+        
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Delete"
+            android:onClick="deleteClicked"
+            android:background="@color/white"/>
 
     </LinearLayout>
 

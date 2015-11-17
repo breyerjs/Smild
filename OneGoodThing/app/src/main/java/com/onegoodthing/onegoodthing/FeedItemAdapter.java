@@ -57,4 +57,9 @@ public class FeedItemAdapter extends BaseAdapter{
 
     }
 
+    public void setFeedItems(List<FeedItem> feedItems){
+        this.feedItems = feedItems;
+    }
+
+
 }

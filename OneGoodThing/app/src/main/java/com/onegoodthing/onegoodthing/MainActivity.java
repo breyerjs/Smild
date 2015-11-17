@@ -88,5 +88,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void deleteClicked(View view) {
+
+        try {
+            ListView theFeed = (ListView) findViewById(R.id.the_feed);
+            int position = theFeed.getPositionForView(view);
+            FeedItemAdapter adapter = (FeedItemAdapter) theFeed.getAdapter();
+            // remove it from internal storage (save too?!?!?)
+            InternalStorage.theFeed.remove(position);
+            InternalStorage.writeObject(this, "allGoodThings", InternalStorage.theFeed);
+            //reset the adapters stuff
+            adapter.setFeedItems(InternalStorage.theFeed);
+            //notify the listview
+            adapter.notifyDataSetChanged();
+        }catch (IOException e) {
+            Log.d("IO Exception", "from deletion");
+        }
+
+    }
+
 }
 
