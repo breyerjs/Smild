@@ -40,6 +40,8 @@ public class RememberWhen extends AppCompatActivity {
         LinearLayout subsubLayout = (LinearLayout) subLayout.getChildAt(0);
         memoryTimestamp = (TextView) subsubLayout.getChildAt(0);
         memoryText = (TextView) subsubLayout.getChildAt(1);
+        //removes the delete button
+        subsubLayout.getChildAt(2).setVisibility(View.GONE);
 
         //fill the display elements
         memoryTimestamp.setText(initialMemory.getTimestamp());
