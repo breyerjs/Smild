@@ -56,7 +56,7 @@ public class AddGoodThing extends AppCompatActivity {
 
                 //get current max id. Use min because they compare backwards for sorting
                 int currentMaxId = Collections.min(InternalStorage.theFeed, new FeedItemComparator()).gtid;
-                
+
                 //add it and write it back to memory
                 InternalStorage.theFeed.add(new FeedItem(currentMaxId + 1, text));
                 InternalStorage.sortTheFeed();
