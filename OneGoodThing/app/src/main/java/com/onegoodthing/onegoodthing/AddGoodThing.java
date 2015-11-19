@@ -4,10 +4,12 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -27,7 +29,6 @@ public class AddGoodThing extends AppCompatActivity {
         String delivered = addNew();
         if (delivered==null) {
             //reload the feed, since we've added something new
-            InternalStorage.loadFeed(getApplicationContext());
             startMain();
         }
         else{
@@ -52,30 +53,26 @@ public class AddGoodThing extends AppCompatActivity {
         //if this ain't the first post
         if (Arrays.asList(fileList()).contains("allGoodThings")) {
             try {
-                //get the list from memory
-                ArrayList<FeedItem> currentList = (ArrayList<FeedItem>) InternalStorage.readObjectList(this, "allGoodThings");
 
-                //get current max id
-                int currentMaxId = Collections.max(currentList).gtid;
-
+                //get current max id. Use min because they compare backwards for sorting
+                int currentMaxId = Collections.min(InternalStorage.theFeed, new FeedItemComparator()).gtid;
+                
                 //add it and write it back to memory
-                currentList.add(new FeedItem(currentMaxId+1, text));
-                InternalStorage.writeObject(this, "allGoodThings", currentList);
+                InternalStorage.theFeed.add(new FeedItem(currentMaxId + 1, text));
+                InternalStorage.sortTheFeed();
+                InternalStorage.writeObject(this, "allGoodThings", InternalStorage.theFeed);
 
             } catch (IOException e) {
                 return "IO Exception";
-            } catch (ClassNotFoundException e) {
-                return "Class not found exception";
             }
         }
 
         //If it's the first post
         else{
             //make the directory and add it as the first item
-            ArrayList<FeedItem> currentList = new ArrayList<FeedItem>();
-            currentList.add(new FeedItem(1, text));
+            InternalStorage.theFeed.add(new FeedItem(1, text));
             try {
-                InternalStorage.writeObject(this, "allGoodThings", currentList);
+                InternalStorage.writeObject(this, "allGoodThings", InternalStorage.theFeed);
             } catch (IOException e) {
                 return "IO Exception";
             }

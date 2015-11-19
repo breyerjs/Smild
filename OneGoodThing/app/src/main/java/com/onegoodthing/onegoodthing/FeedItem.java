@@ -18,9 +18,10 @@ public class FeedItem implements Serializable, Comparable<FeedItem> {
 
     }
 
-    public FeedItem(int id, String text){
+    public FeedItem(int gtid, String text){
         this.timestamp = checkDate();
         this.text = text;
+        this.gtid = gtid;
     }
 
     public String checkDate(){
@@ -53,7 +54,7 @@ public class FeedItem implements Serializable, Comparable<FeedItem> {
     }
 
     public int compareTo(FeedItem other){
-        return Integer.compare(other.gtid, this.gtid);
+        return other.gtid - this.gtid;
     }
 
 }

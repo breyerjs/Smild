@@ -30,7 +30,8 @@
             android:onClick="deleteClicked"
             android:background="@color/white"
             android:layout_gravity="right"
-            android:textColor="@color/main_blue"
+            android:textAllCaps="false"
+            android:textColor="@color/feed_bg"
             style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>

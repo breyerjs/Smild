@@ -16,6 +16,9 @@ import java.io.StringWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,7 +36,8 @@ public final class InternalStorage extends AppCompatActivity{
         if (Arrays.asList(context.fileList()).contains("allGoodThings")) {
             try {
                 theFeed = (ArrayList<FeedItem>) InternalStorage.readObjectList(context, "allGoodThings");
-//                theFeed = InternalStorage.convertGtToFeedItems(inStorage);
+                sortTheFeed();
+
             } catch (ClassNotFoundException e) {
                 Toast.makeText(context, "There's been an error (class)", Toast.LENGTH_LONG).show();
             } catch (IOException e) {
@@ -67,6 +71,10 @@ public final class InternalStorage extends AppCompatActivity{
 
     public Boolean fileExists(String filename) {
         return (Arrays.asList(fileList()).contains(filename));
+    }
+
+    public static void sortTheFeed(){
+        Collections.sort(theFeed);
     }
 
 }
