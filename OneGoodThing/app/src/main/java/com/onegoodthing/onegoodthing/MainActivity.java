@@ -1,6 +1,8 @@
 package com.onegoodthing.onegoodthing;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -27,6 +29,9 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
+
+    //used as temporary storage for deleting items
+    int positionToDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +94,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void deleteClicked(View view) {
+    public void deleteClicked(final View view) {
+        //show a dialog.
+        new AlertDialog.Builder(this)
+                .setTitle("Delete")
+                .setMessage("Are you sure you want to delete this entry?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    //if yes is clicked
+                    public void onClick(DialogInterface dialog, int which) {
+                        performDelete(view);
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    //if no is clicked
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .show();
 
+    }
+
+    public void performDelete(View view) {
         try {
             ListView theFeed = (ListView) findViewById(R.id.the_feed);
             int position = theFeed.getPositionForView(view);
@@ -107,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
 }
 
