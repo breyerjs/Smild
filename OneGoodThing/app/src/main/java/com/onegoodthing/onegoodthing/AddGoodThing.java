@@ -26,7 +26,9 @@ public class AddGoodThing extends AppCompatActivity {
     }
 
     public void submitPressed(View view){
-        String delivered = addNew();
+        AddingToolkit toolkit = new AddingToolkit();
+        EditText source = (EditText) findViewById(R.id.input_text);
+        String delivered = toolkit.saveNewGoodThing(this, source);
         if (delivered==null) {
             //reload the feed, since we've added something new
             startMain();
@@ -37,47 +39,6 @@ public class AddGoodThing extends AppCompatActivity {
         }
 
 
-    }
-
-    public String addNew(){
-
-        // see https://androidresearch.wordpress.com/2013/04/07/caching-objects-in-android-internal-storage/
-
-        EditText mEdit   = (EditText)findViewById(R.id.input_text);
-        String text = mEdit.getText().toString();
-
-        //if they haven't entered any text
-        if (text.equals(""))
-            return "Please Enter Some Text";
-
-        //if this ain't the first post
-        if (Arrays.asList(fileList()).contains("allGoodThings")) {
-            try {
-
-                //get current max id. Use min because they compare backwards for sorting
-                int currentMaxId = Collections.min(InternalStorage.theFeed, new FeedItemComparator()).gtid;
-
-                //add it and write it back to memory
-                InternalStorage.theFeed.add(new FeedItem(currentMaxId + 1, text));
-                InternalStorage.sortTheFeed();
-                InternalStorage.writeObject(this, "allGoodThings", InternalStorage.theFeed);
-
-            } catch (IOException e) {
-                return "IO Exception";
-            }
-        }
-
-        //If it's the first post
-        else{
-            //make the directory and add it as the first item
-            InternalStorage.theFeed.add(new FeedItem(1, text));
-            try {
-                InternalStorage.writeObject(this, "allGoodThings", InternalStorage.theFeed);
-            } catch (IOException e) {
-                return "IO Exception";
-            }
-        }
-        return null;
     }
 
     public void startMain(){
