@@ -7,12 +7,22 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         <LinearLayout
+            android:id="@+id/for_scrollview"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- This text view will be replaced by a series of images
+            <LinearLayout
+                android:id="@+id/tour_items"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <!-- This text view will be replaced by a series of images
                 showing the intro tour stuff-->
+
+            </LinearLayout>
+
+
 
             <TextView
                 android:layout_width="wrap_content"

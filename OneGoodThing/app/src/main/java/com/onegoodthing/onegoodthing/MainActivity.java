@@ -36,32 +36,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        //if we're just starting up the app, get the feed from disk
         if (InternalStorage.theFeed == null) {
             InternalStorage.loadFeed(getApplicationContext());
         }
         loadTheFeed();
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        //if there aren't any goodthings saved, begin the tour!
+        if (InternalStorage.theFeed.size() == 0){
+            startIntroTour();
         }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public void startAbout(View view) {
@@ -71,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void startRememberWhen(View view) {
         Intent start = new Intent(MainActivity.this, RememberWhen.class);
+        MainActivity.this.startActivity(start);
+    }
+
+    public void startIntroTour(){
+        Intent start = new Intent(MainActivity.this, IntroTour.class);
         MainActivity.this.startActivity(start);
     }
 

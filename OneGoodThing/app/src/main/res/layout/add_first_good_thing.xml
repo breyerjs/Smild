@@ -6,7 +6,7 @@
 
 
     <EditText
-        android:id="@+id/input_text"
+        android:id="@+id/first_goodthing_input"
         android:hint="@string/add_good_thing_helper"
         android:layout_width="match_parent"
         android:layout_height="250dp"
@@ -22,6 +22,7 @@
         android:background="@color/white"/>
 
     <Button
+        android:id="@+id/submit_first_goodthing"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
