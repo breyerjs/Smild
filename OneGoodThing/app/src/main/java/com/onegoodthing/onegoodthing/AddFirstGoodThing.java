@@ -13,7 +13,7 @@ public class AddFirstGoodThing extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.addgoodthing);
+        setContentView(R.layout.add_first_good_thing);
     }
 
     public void submitPressed(View view){
