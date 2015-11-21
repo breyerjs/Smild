@@ -7,7 +7,9 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -22,6 +24,7 @@ public class RememberWhen extends AppCompatActivity {
     //these are the feedItem's fields--for referencing elsewhere
     TextView memoryTimestamp;
     TextView memoryText;
+    FeedItem current = new FeedItem(-999, ""); //fake feed item for comparisons
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class RememberWhen extends AppCompatActivity {
         //fill the display elements
         memoryTimestamp.setText(initialMemory.getTimestamp());
         memoryText.setText(initialMemory.getText());
+        adviceDog();
     }
 
     @Override
@@ -81,6 +85,38 @@ public class RememberWhen extends AppCompatActivity {
     public FeedItem getRandomGoodThing(){
         Random random = new Random();
         int randomIndex = random.nextInt(InternalStorage.theFeed.size());
-        return InternalStorage.theFeed.get(randomIndex);
+        FeedItem newGoodThing = InternalStorage.theFeed.get(randomIndex);
+
+        //deduplicate if they have more than one and it's the same as the last one
+        while (InternalStorage.theFeed.size() >= 2 && current.getText().equals(newGoodThing.getText())) {
+            randomIndex = random.nextInt(InternalStorage.theFeed.size());
+            newGoodThing = InternalStorage.theFeed.get(randomIndex);
+        }
+        current = newGoodThing;
+        return current;
+
+    }
+
+    public void adviceDog(){
+        if (InternalStorage.theFeed.size() <= 2){
+            TextView advice = new TextView(this);
+            advice.setText(getResources().getString(R.string.advice));
+
+            //the next few lines does the 'layout_below' formatting
+            RelativeLayout.LayoutParams p = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+
+            p.addRule(RelativeLayout.BELOW, R.id.another_goodthing_button);
+            advice.setLayoutParams(p);
+            //add some padding
+            float scale = getResources().getDisplayMetrics().density;
+            int dpAsPixels = (int) (15*scale + 0.5f);
+            advice.setPadding(dpAsPixels,0,dpAsPixels,0);
+
+            //add it to the layout
+            RelativeLayout main = (RelativeLayout) findViewById(R.id.main_remember_when);
+            main.addView(advice);
+
+        }
     }
 }

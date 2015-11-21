@@ -3,6 +3,7 @@ package com.onegoodthing.onegoodthing;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -33,8 +34,12 @@ public class AddingToolkit {
         if (Arrays.asList(context.fileList()).contains("allGoodThings")) {
             try {
 
+                //have to check this way to prevent edge case where file could exist with
+                //  no elements
+                int currentMaxId = 0;
                 //get current max id. Use min because they compare backwards for sorting
-                int currentMaxId = Collections.min(InternalStorage.theFeed, new FeedItemComparator()).gtid;
+                if (InternalStorage.theFeed.size() > 0)
+                    currentMaxId = Collections.min(InternalStorage.theFeed, new FeedItemComparator()).gtid;
 
                 //add it and write it back to memory
                 InternalStorage.theFeed.add(new FeedItem(currentMaxId + 1, text));
@@ -88,6 +93,11 @@ public class AddingToolkit {
             adapter.setFeedItems(InternalStorage.theFeed);
             //notify the listview
             adapter.notifyDataSetChanged();
+            //if no goodthings, start main to trigger the intro tour
+            if (InternalStorage.theFeed.size() == 0){
+                Intent start = new Intent(context, MainActivity.class);
+                context.startActivity(start);
+            }
         }catch (IOException e) {
             Log.d("IO Exception", "from deletion");
         }
