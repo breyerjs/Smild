@@ -1,6 +1,7 @@
 package com.onegoodthing.onegoodthing;
 
 import android.app.ActionBar;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -50,6 +51,7 @@ public class RememberWhen extends AppCompatActivity {
         memoryTimestamp.setText(initialMemory.getTimestamp());
         memoryText.setText(initialMemory.getText());
         adviceDog();
+
     }
 
     @Override
