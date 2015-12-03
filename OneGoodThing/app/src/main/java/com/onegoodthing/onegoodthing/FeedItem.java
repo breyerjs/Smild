@@ -7,7 +7,6 @@ import java.util.Locale;
 /**
  * Created by Jackson Breyer on 10/11/2015.
  *
- * http://www.androidhive.info/2014/06/android-facebook-like-custom-listview-feed-using-volley/
  */
 public class FeedItem implements Serializable, Comparable<FeedItem> {
     private String timestamp;

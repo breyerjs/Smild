@@ -21,7 +21,7 @@ public class IntroTour extends AppCompatActivity {
 
     public void inflateTour(){
         LinearLayout tourPane = (LinearLayout) findViewById(R.id.tour_items);
-        View tour = getLayoutInflater().inflate(R.layout.tour_items, null);
+        final View tour = getLayoutInflater().inflate(R.layout.tour_items, null);
         tourPane.addView(tour);
 
     }

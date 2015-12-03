@@ -19,30 +19,9 @@ public class About extends AppCompatActivity {
     }
 
     public void inflateAboutPane(){
-        RelativeLayout tourPane = (RelativeLayout) findViewById(R.id.about_pane);
-        View tour = getLayoutInflater().inflate(R.layout.tour_items, null);
+        LinearLayout tourPane = (LinearLayout) findViewById(R.id.about_pane);
+        final View tour = getLayoutInflater().inflate(R.layout.tour_items, null);
         tourPane.addView(tour);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

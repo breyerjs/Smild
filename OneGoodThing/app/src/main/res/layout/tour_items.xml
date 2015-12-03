@@ -1,11 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/secondary_blue">
 
-    <TextView
+
+    <ImageView
         android:layout_width="fill_parent"
-        android:layout_height="200dp"
-        android:text="Placeholder Text"/>
-    
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/secondary_blue"
+        android:src="@drawable/header_image"/>
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:src="@drawable/alpaca_homework"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/feed_bg"
+        android:src="@drawable/ptero_pizza"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/secondary_blue"
+        android:src="@drawable/alpaca_hair"/>
+
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/feed_bg"
+        android:src="@drawable/ptero_poop"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/secondary_blue"
+        android:src="@drawable/alpaca_suit"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/feed_bg"
+        android:src="@drawable/ptero_computer"/>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="400dp"
+        android:padding="10dp"
+        android:background="@color/secondary_blue"
+        android:src="@drawable/alpaca_sun"/>
+
+
+
+
+
 </LinearLayout>
